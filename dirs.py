@@ -1,10 +1,10 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return 'Main'
+    return render_template('base_template.jinja')
 
 if __name__ == '__main__':
     app.run(debug=True)
