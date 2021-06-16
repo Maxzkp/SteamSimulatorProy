@@ -1,6 +1,10 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect
 
 app = Flask(__name__, template_folder='Templates')
+
+@app.route('/')
+def index():
+    return redirect('/1')
 
 @app.route('/<int:usr>')
 def main(usr):
