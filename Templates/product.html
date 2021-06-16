@@ -1,22 +1,10 @@
 {% extends "navbar.jinja" %}
 
 {% block undernav %}
-<div class="container bg-light mt-4 p-3 rounded-3">
-    <center><h1>Titulo del juego {{ prod }}</h1></center>
-    <div class="row mt-4 mb-4">
-        <div class="col-3"></div>
-        <div class="border col-4 p-3 text-justify">
-            <h5>Descripcion</h5>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora enim illo eum deleniti itaque fugiat cupiditate repudiandae quae fuga, ipsa commodi perspiciatis adipisci labore maiores neque soluta architecto, mollitia similique. Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, deleniti nam numquam necessitatibus pariatur voluptates natus laborum? Laborum facilis quos id blanditiis rem dicta possimus, facere eius fuga, voluptatum quis.</p>
-        </div>
-        <div class="border col-2 p-3 text-end">
-            <p>Desarrollador</p>
-            <p>Distribuidor</p>
-            <p>DD MMM AAAA</p>
-            <p><span class="text-primary">$$$$$</span><i class="bi-star text-warning" style="font-size: 1rem;"></i></p>
-        </div>
-        <div class="col-3"></div>
-    </div>
-    <center><a href="/{{ user }}/buy/{{ prod }}" class="btn btn-success">Comprar</a> <a href="/{{ user }}" class="btn btn-outline-danger">Volver</a></center>
+<div class="container bg-light mt-4 p-3 rounded-3" id="product">
 </div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='Scripts/product.js') }}"></script>
 {% endblock %}
