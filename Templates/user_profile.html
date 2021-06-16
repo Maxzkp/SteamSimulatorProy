@@ -30,23 +30,14 @@
     
     <center><h5 class="mt-5">Juegos comprados</h5></center>
 
-    <div class="border row mx-5 mt-4 p-3">
-
-        <div class="card col-4">
-            <div class="card-body">
-              <center><h5 class="card-title">Game Title</h5></center>
-              <div class="row">
-                <h6 class="card-subtitle col-6 mb-2 text-muted">Desarrollador</h6>
-                <h6 class="card-subtitle col-6 mb-2 text-muted text-end">DD MMM AAAA</h6>
-              </div>
-              <div class="row">
-                <h6 class="card-subtitle col-6 mb-2 text-muted">Distribuidor</h6>
-                <h6 class="card-subtitle col-6 mb-2 text-muted text-end"><span class="text-primary">$$$$$</span><i class="bi-star text-warning" style="font-size: 1rem;"></i></h6>
-              </div>
-              <center><a href="/{{ user }}/refund/2" class="btn btn-outline-danger">Devolver</a></center>
-            </div>
-        </div>   
-
+    <div class="border row mx-5 mt-4 p-3" id="user_games">
     </div>
 </div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    var usr = '{{ user }}'
+</script>
+<script src="{{ url_for('static', filename='Scripts/user_profile.js') }}"></script>
 {% endblock %}
