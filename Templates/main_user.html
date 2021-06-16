@@ -1,5 +1,9 @@
 {% extends "navbar.jinja" %}
 
+{% block user %}
+{{ user }}
+{% endblock %}
+
 {% block undernav %}
 <div class="container bg-light mt-4 p-3 rounded-3">
 
@@ -56,7 +60,7 @@
         </thead>
         <tbody>
           <tr>
-            <td><a href="" >Nombre</a></td>
+            <td><a href="/{{ user }}/see_product/5" >Nombre</a></td>
             <td>Des</td>
             <td>Dist</td>
             <td>DD MMM AAAA</td>
