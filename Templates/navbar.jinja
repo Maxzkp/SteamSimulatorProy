@@ -1,0 +1,27 @@
+{% extends "base_template.jinja" %}
+
+{% block body %}
+
+{% block overnav %}
+{% endblock %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand text-steam" href="#"><b>Steam simulator</b></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      </ul>
+      <a class="nav-link text-steam" href="#" role="button">
+        Bienvenido <span id='UsuarioLogeado'>*usuario*</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+{% block undernav %}
+{% endblock %}
+
+{% endblock %}
