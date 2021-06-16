@@ -15,7 +15,26 @@
     {% block body %}
     <h1>Empty</h1>
     {% endblock %}
+    <script>
+        async function postData(url = '', data = '') {
+            let headers = new Headers();
 
+            headers.append('Content-Type', 'text/xml');
+            headers.append('Accept', 'text/xml');
+
+            const response = await fetch(url, {
+                method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                mode: 'no-cors', // no-cors, *cors, same-origin
+                cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                credentials: 'omit', // include, *same-origin, omit
+                headers: headers,
+                redirect: 'follow', // manual, *follow, error
+                referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+                body: data // body data type must match "Content-Type" header
+            });
+            return response.data; // parses JSON response into native JavaScript objects
+        }
+    </script>
     {% if user %}
     <script>
         var user_id = '{{ user }}'

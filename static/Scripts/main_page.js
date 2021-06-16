@@ -14,6 +14,21 @@ function create_row(id, title, dev, pub, date, cost) {
     return new_row;
 }
 
+var sent_data = `<juego action="getall">
+<id></id>
+<titulo></titulo>
+<desarrollador></desarrollador>
+<distribuidor></distribuidor>
+<fechalanzamiento></fechalanzamiento>
+<descripcion></descripcion>
+<precio min="" max=""></precio>
+</juego>`
+
+postData('https://steam-simulator-service.herokuapp.com/juegos', sent_data)
+  .then(data => {
+    console.log(data); // JSON data parsed by `data.json()` call
+  });
+
 var games_list = document.getElementById('games_list');
 
 for (let i = 0; i < Math.floor(Math.random()*81) + 20; i++) {
