@@ -22,6 +22,6 @@ function create_card(id, title, dev, pub, date, cost) {
 
 var user_games = document.getElementById('user_games');
 
-for (let i = 0; i < 10; i++) {
-    user_games.innerHTML += create_card(i, `Game ${i}`, 'Dev', 'Pub', `${10-i} ENE 2020`, (i+1)*1000);
+for (let i = 0; i < Math.floor(Math.random()*10) + 1; i++) {
+    user_games.innerHTML += create_card(i+1, `Game ${i}`, 'Dev', 'Pub', `${Math.floor(Math.random()*31) + 1} ENE 2020`, (Math.floor(Math.random()*10) + 1)*1000);
 }

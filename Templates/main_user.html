@@ -54,16 +54,13 @@
             <th scope="col">Precio</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td><a href="/{{ user }}/see_product/5" >Nombre</a></td>
-            <td>Des</td>
-            <td>Dist</td>
-            <td>DD MMM AAAA</td>
-            <td><span class="text-primary">$$$$$</span><i class="bi-star text-warning" style="font-size: 1rem;"></i></td>
-          </tr>
+        <tbody id="games_list">
         </tbody>
       </table>
 
 </div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='Scripts/main_page.js') }}"></script>
 {% endblock %}
