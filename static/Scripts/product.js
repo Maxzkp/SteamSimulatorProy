@@ -12,11 +12,17 @@ function create_prod(id, title, desc, dev, pub, date, cost) {
                 <p>${dev}</p>
                 <p>${pub}</p>
                 <p>${date}</p>
-                <p><span class="text-primary">${cost}</span><i class="bi-star text-warning" style="font-size: 1rem;"></i></p>
+                <p>
+                    <span class="text-primary">${cost}</span>
+                    <i class="bi-star text-warning" style="font-size: 1rem;"></i>
+                </p>
             </div>
             <div class="col-3"></div>
         </div>
-        <center><a href="/${user_id}/buy/${id}" class="btn btn-success">Comprar</a> <a href="/${user_id}" class="btn btn-outline-danger">Volver</a></center>`;
+        <center>
+            <a href="/${user_id}/buy/${id}" class="btn btn-success">Comprar</a> 
+            <a href="/${user_id}" class="btn btn-outline-danger">Volver</a>
+        </center>`;
     return new_row;
 }
 

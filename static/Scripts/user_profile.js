@@ -11,7 +11,10 @@ function create_card(id, title, dev, pub, date, cost) {
             </div>
             <div class="row">
                 <h6 class="card-subtitle col-6 mb-2 text-muted">${pub}</h6>
-                <h6 class="card-subtitle col-6 mb-2 text-muted text-end"><span class="text-primary me-1">${cost}</span><i class="bi-star text-warning" style="font-size: 1rem;"></i></h6>
+                <h6 class="card-subtitle col-6 mb-2 text-muted text-end">
+                    <span class="text-primary me-1">${cost}</span>
+                    <i class="bi-star text-warning" style="font-size: 1rem;"></i>
+                </h6>
             </div>
             <center><a href="/${user_id}/refund/${id}" class="btn btn-outline-danger">Devolver</a></center>
             </div>

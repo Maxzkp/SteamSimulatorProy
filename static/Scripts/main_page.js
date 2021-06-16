@@ -6,7 +6,10 @@ function create_row(id, title, dev, pub, date, cost) {
         <td>${dev}</td>
         <td>${pub}</td>
         <td>${date}</td>
-        <td><span class="text-primary me-1">${cost}</span><i class="bi-star text-warning" style="font-size: 1rem;"></i></td>
+        <td>
+            <span class="text-primary me-1">${cost}</span>
+            <i class="bi-star text-warning" style="font-size: 1rem;"></i>
+        </td>
     </tr>`;
     return new_row;
 }

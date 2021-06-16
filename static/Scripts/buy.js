@@ -5,15 +5,27 @@ function create_count(user_stars, prod_stars) {
     let total_c = ''
 
     if (user_stars < prod_stars) {
-        total_c = `<p><span class="text-danger">${user_stars-prod_stars}</span><i class="bi-star text-warning" style="font-size: 1rem;"></i></p>`
+        total_c = `<p>
+            <span class="text-danger">${user_stars-prod_stars}</span>
+            <i class="bi-star text-warning" style="font-size: 1rem;"></i>
+        </p>`
     } else {
-        total_c = `<p><span class="text-primary">${user_stars-prod_stars}</span><i class="bi-star text-warning" style="font-size: 1rem;"></i></p>`
+        total_c = `<p>
+            <span class="text-primary">${user_stars-prod_stars}</span>
+            <i class="bi-star text-warning" style="font-size: 1rem;"></i>
+        </p>`
     }
 
     let new_row = `<div class="col-4"></div>
         <div class="border col-4 text-end mb-3 pt-3">
-            <p><span class="text-primary">${user_stars}</span><i class="bi-star text-warning" style="font-size: 1rem;"></i></p>
-            <p><span class="text-primary">-${prod_stars}</span><i class="bi-star text-warning" style="font-size: 1rem;"></i></p>
+            <p>
+                <span class="text-primary">${user_stars}</span>
+                <i class="bi-star text-warning" style="font-size: 1rem;"></i>
+            </p>
+            <p>
+                <span class="text-primary">-${prod_stars}</span>
+                <i class="bi-star text-warning" style="font-size: 1rem;"></i>
+            </p>
             <hr>` + total_c + `</div>
         <div class="col-4"></div>`;
     return new_row;
