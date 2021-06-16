@@ -1,9 +1,5 @@
 {% extends "navbar.jinja" %}
 
-{% block user %}
-{{ user }}
-{% endblock %}
-
 {% block undernav %}
 <div class="container bg-light mt-4 p-3 rounded-3">
 
@@ -64,7 +60,7 @@
             <td>Des</td>
             <td>Dist</td>
             <td>DD MMM AAAA</td>
-            <td>$$$</td>
+            <td><span class="text-primary">$$$$$</span><i class="bi-star text-warning" style="font-size: 1rem;"></i></td>
           </tr>
         </tbody>
       </table>

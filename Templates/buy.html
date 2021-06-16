@@ -1,0 +1,24 @@
+{% extends "navbar.jinja" %}
+
+{% block undernav %}
+<div class="container bg-light mt-4 p-3 rounded-3">
+    <center>
+        <h1>Titulo del juego {{ prod }}</h1>
+        <p>Por favor confirme su compra</p>
+    </center>
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="border col-4 text-end mb-3 pt-3">
+            <p>Saldo del usuario {{ user }}</p>
+            <p>Precio del juego {{ prod }}</p>
+            <hr>
+            <p>Saldo restante {{ user }} - {{ prod }}</p>    
+        </div>
+        <div class="col-4"></div>
+    </div>
+    <center>
+    <a href="" class="btn btn-success">Confirmar</a> 
+    <a href="/{{ user }}/see_product/{{ prod }}" class="btn btn-outline-danger">Volver</a>
+    </center>
+</div>
+{% endblock %}
