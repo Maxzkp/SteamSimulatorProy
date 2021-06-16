@@ -5,3 +5,7 @@
 .text-steam{
     color: rgb(25, 39, 65);
 }
+
+.text-justify{
+    text-align: justify;
+}
