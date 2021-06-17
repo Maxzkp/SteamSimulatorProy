@@ -27,17 +27,15 @@ var sent_data = `<juego action="getall">
 var req = new XMLHttpRequest();
 req.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      console.log(this.responseText);
+        var json_resp = JSON.parse(xml2json(this.responseXML, ''));
+        var games_list = document.getElementById('games_list');
+        json_resp.juegos.juego.forEach(juego => {
+            console.log(juego);
+            games_list.innerHTML += create_row(juego.id, `${juego.titulo}`, `${juego.desarrollador}`, `${juego.distribuidor}`, `${juego.fechalanzamiento}`, juego.precio['#text']);
+        });
     }
   };
-req.open('POST', 'https://steam-simulator-service.herokuapp.com/juegos.');
+
+req.open('POST', 'https://steam-simulator-service.herokuapp.com/juegos', true);
 req.setRequestHeader("Content-type", "application/xml");
-//req.setRequestHeader('Access-Control-Allow-Origin', '*');
-req.withCredentials = false
 req.send(sent_data);
-
-var games_list = document.getElementById('games_list');
-
-for (let i = 0; i < Math.floor(Math.random()*81) + 20; i++) {
-    games_list.innerHTML += create_row(i+1, `Game ${i+1}`, 'Dev', 'Pub', `${Math.floor(Math.random()*31) + 1} ENE 2020`, (Math.floor(Math.random()*10) + 1)*1000);
-}
