@@ -24,10 +24,17 @@ var sent_data = `<juego action="getall">
 <precio min="" max=""></precio>
 </juego>`
 
-postData('https://steam-simulator-service.herokuapp.com/juegos', sent_data)
-  .then(data => {
-    console.log(data); // JSON data parsed by `data.json()` call
-  });
+var req = new XMLHttpRequest();
+req.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      console.log(this.responseText);
+    }
+  };
+req.open('POST', 'https://steam-simulator-service.herokuapp.com/juegos.');
+req.setRequestHeader("Content-type", "application/xml");
+//req.setRequestHeader('Access-Control-Allow-Origin', '*');
+req.withCredentials = false
+req.send(sent_data);
 
 var games_list = document.getElementById('games_list');
 
