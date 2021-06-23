@@ -5,42 +5,32 @@
 
     <!-- Filtrado -->
 
-    <div class="row">
+    <form method="POST" action="/{{ user }}" class="row">
         <div class="col-3">
-            <select class="form-select" aria-label="Default select example">
-                <option selected>-Desarrollador-</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
+            <input class="form-control me-2" name="dev" value="" type="search" placeholder="Desarrollador" aria-label="Search">
         </div>
         <div class="col-3">
-            <select class="form-select" aria-label="Default select example">
-                <option selected>-Distribuidor-</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
+            <input class="form-control me-2" name="pub" value="" type="search" placeholder="Distribuidor" aria-label="Search">
         </div>
         <div class="col-3">
             <div class="row">
                 <div class="col-6 ">
                     <div class="col-auto">
-                      <input type="text" placeholder="$MIN" id="minprice" class="form-control">
+                      <input type="text" placeholder="$MIN" value="" name="min" class="form-control">
                     </div>
                 </div>
                 <div class="col-6 ">
                     <div class="col-auto">
-                      <input type="text" placeholder="$MAX" id="maxprice" class="form-control">
+                      <input type="text" placeholder="$MAX" value="" name="max" class="form-control">
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-2">
-            <input class="form-control me-2" type="search" placeholder="Titulo" aria-label="Search">
+            <input class="form-control me-2" type="search" value="" name="title" placeholder="Titulo" aria-label="Search">
         </div>
-        <div class="col-1"><button class="btn btn-outline-success" type="button">Aplicar</button></div>
-    </div>
+        <div class="col-1"><button class="btn btn-outline-success" type="submit" id="find">Aplicar</button></div>
+    </form>
 
     <!-- Juegos disponibles -->
 
@@ -63,4 +53,39 @@
 
 {% block extra_js %}
 <script src="{{ url_for('static', filename='Scripts/main_page.js') }}"></script>
+{% if find %}
+<script>
+        let title = '{{ find.titulo }}';
+        let dev = '{{ find.dev }}';
+        let pub = '{{ find.pub }}';
+        let min = '{{ find.min }}';
+        let max = '{{ find.max }}';
+        let sent_data = `<?xml version="1.0" encoding="UTF-8"?>
+        <juego action="getby">
+            <id></id>
+            <titulo>${title}</titulo>
+            <desarrollador>${dev}</desarrollador>
+            <distribuidor>${pub}</distribuidor>
+            <fechalanzamiento></fechalanzamiento>
+            <descripcion></descripcion>
+            <precio min="${min}" max="${max}"></precio>
+        </juego>`;
+        do_request('POST', 'https://steam-simulator-service.herokuapp.com/juegos/filtros', sent_data);
+</script>
+{% else %}
+<script>
+        let sent_data = `<?xml version="1.0" encoding="UTF-8"?>
+        <juego action="getall">
+            <id></id>
+            <titulo></titulo>
+            <desarrollador></desarrollador>
+            <distribuidor></distribuidor>
+            <fechalanzamiento></fechalanzamiento>
+            <descripcion></descripcion>
+            <precio min="" max=""></precio>
+        </juego>`
+
+        do_request('POST', 'https://steam-simulator-service.herokuapp.com/juegos', sent_data);
+</script>
+{% endif %}
 {% endblock %}

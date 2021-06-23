@@ -1,14 +1,26 @@
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template, redirect, request
 
 app = Flask(__name__, template_folder='Templates')
+
+class find_juego():
+    def __init__(self, titulo, dev, pub, min, max):
+        self.titulo = titulo
+        self. dev = dev
+        self.pub = pub
+        self.min = min
+        self.max = max
 
 @app.route('/')
 def index():
     return redirect('/1')
 
-@app.route('/<int:usr>')
+@app.route('/<int:usr>', methods = ['GET', 'POST'])
 def main(usr):
-    return render_template('main_user.html', user = usr)
+    if request.method == 'GET':
+        return render_template('main_user.html', user = usr)
+    else:
+        jue = find_juego(request.form.get('title'), request.form.get('dev'), request.form.get('pub'), request.form.get('min'), request.form.get('max'))
+        return render_template('main_user.html', user = usr, find = jue)
 
 @app.route('/<int:usr>/profile')
 def profile(usr):
